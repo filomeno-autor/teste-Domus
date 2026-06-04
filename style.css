@@ -1,0 +1,146 @@
+/* Margens globais e reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0f1115;
+    overflow: hidden;
+    font-family: 'EB Garamond', Georgia, serif;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    background-color: #0f1115;
+    z-index: 1;
+}
+
+.leaflet-container {
+    background: #0f1115 !important;
+}
+
+/* --- CAMADA DE ESCURECIMENTO DO MAPA --- */
+#map-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Escurecimento de 50% */
+    z-index: 5; /* Fica acima do mapa mas abaixo do painel */
+    opacity: 0;
+    pointer-events: none; /* Invisível para cliques por padrão */
+    transition: opacity 0.4s ease;
+}
+
+#map-overlay.ativo {
+    opacity: 1;
+    pointer-events: auto; /* Bloqueia cliques no mapa enquanto aberto */
+}
+
+/* --- PAINEL LATERAL DESLIZANTE (SIDEBAR 30%) --- */
+#sidebar-lore {
+    position: fixed;
+    top: 0;
+    right: -30%; /* Começa escondido para fora da tela */
+    width: 30%;  /* Ocupa exatamente 30% da largura da tela */
+    height: 100%;
+    background-image: url('imagens/fundo-caixa.png') !important;
+    background-size: 100% 100%; /* Garante que a imagem estique perfeitamente na escala vertical e horizontal */
+    background-repeat: no-repeat;
+    /* Sombras suaves para dar profundidade na divisão com o mapa */
+    filter: drop-shadow(-5px 0 15px rgba(0, 0, 0, 0.6)); 
+    z-index: 10; 
+    transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+    box-sizing: border-box;
+    
+    /* MODIFICADO: Padding da direita reduzido para 5px para empurrar a scrollbar até o limite da borda direita */
+    padding: 40px 5px 35px 45px; 
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar-lore.ativo {
+    right: 0; /* Desliza para dentro da tela */
+}
+
+/* --- BOTÃO DE FECHAR (X INTEGRADO AO PRISMA) --- */
+.botao-fechar {
+    position: absolute;
+    top: 15px;         
+    left: -2.5px;      
+    background: transparent;
+    border: none;
+    color: #8a96a3;   
+    font-size: 18px;   
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    z-index: 11;
+    width: 32px;      
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.botao-fechar:hover {
+    color: #ffdd77;
+    transform: scale(1.1);
+}
+
+/* --- CONTEÚDO INTERNO DA LORE --- */
+#sidebar-conteudo {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Mantém a estrutura externa firme */
+}
+
+#sidebar-conteudo h3 {
+    margin: 0 0 20px 0; 
+    color: #ffdd77; /* Dourado RPG */
+    font-family: 'Cinzel', Times, serif;
+    font-size: 28px; 
+    font-weight: 700;
+    border-bottom: 1px solid #2a323d;
+    padding-bottom: 10px;
+    letter-spacing: 1px;
+    flex-shrink: 0; /* Impede que o título seja esmagado pelo texto longo */
+    text-align: center; 
+    
+    /* MODIFICADO: Adicionada margem direita para alinhar simetricamente com o novo limite do texto */
+    margin-right: 30px; 
+}
+
+/* Área interna com scroll liberado e espaço otimizado */
+.texto-scroll {
+    overflow-y: auto !important; /* Força a aparição da barra quando o texto transbordar */
+    flex-grow: 1;
+    padding-right: 20px; /* Respiro interno para o texto não colar na própria linha da barra */
+    margin-left: 0; 
+    
+    /* MODIFICADO: Adicionada uma margem para empurrar o texto para a esquerda, criando o vão limpo antes da barra */
+    margin-right: px; 
+    
+    color: #d1d8e0;
+    font-size: 18px; 
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Customização sutil da barra de rolagem para não quebrar o visual medieval */
+.texto-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+.texto-scroll::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+.texto-scroll::-webkit-scrollbar-thumb {
+    background: #2a323d;
+    border-radius: 3px;
+}
+.texto-scroll::-webkit-scrollbar-thumb:hover {
+    background: #ffdd77;
+}
