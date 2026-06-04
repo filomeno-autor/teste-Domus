@@ -1,0 +1,59 @@
+// =========================================================================
+// --- BANCO DE DADOS DA LORE ---
+// =========================================================================
+var bancoDeLore = {
+    deofyy: {
+        titulo: "Deofyy",
+        texto: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>"
+    },
+    treferih: {
+        titulo: "Treferih",
+        texto: "<p>Lorem ipsum dolor sit amet...</p>"
+    },
+    foas: {
+        titulo: "Fōas",
+        texto: "<p>Lorem ipsum dolor sit amet...</p>"
+    },
+    kabhan: {
+        titulo: "Kabhan",
+        texto: "Lorem ipsum dolor sit amet..."
+    },
+    nica: {
+        titulo: "Níca",
+        texto: "Lorem ipsum dolor sit amet..."
+    }
+};
+
+// =========================================================================
+// --- MATRIZES DE COORDENADAS DOS POLÍGONOS ---
+// =========================================================================
+var contornoDeofyy = [
+    [-35.125139625974526, 22.643151455033614],
+    [-35.40642770578576, 22.721309785574952],
+    // ... cole aqui o resto de Deofyy ...
+    [-35.38945298803202, 22.742193987218045]
+];
+
+var contornoTreferih = [
+    [-25.499932302557806, 82.69886835851176],
+    // ... cole aqui o resto de Treferih ...
+    [-71.7523017130346, 71.6913663427955]
+];
+
+var contornoFoas = [
+    [-15.0, 70.0],
+    // ... cole aqui o resto de Fōas ...
+    [-23.36035872845688, 94.56132009883655]
+];
+
+var contornoKabhan = [
+    [-83.06559715798036, 112.25495958455147],
+    // ... cole aqui o resto de Kabhan ...
+    [-82.62658665880141, 112.03142331881497]
+];
+
+var contornoNica = [
+    [-82.25536502229386, 45.8117267314409],
+    // ... cole aqui o resto de Níca ...
+    [-84.1306188877021, 43.43571348298415]
+];
