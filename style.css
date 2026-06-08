@@ -69,11 +69,12 @@ html, body {
 .botao-fechar {
     position: absolute;
     
-    /* CORRIGIDO: Aumentamos a distância do topo para empurrar o X para dentro do losango */
+    /* Mantém a altura que deu certo */
     top: 31px;         
     
-    /* CORRIGIDO: Ajuste fino para alinhar horizontalmente ao bico do painel */
-    left: -1.5px;      
+    /* CORRIGIDO: Mudamos de -1.5px para 13.5px para empurrar o X para a direita, 
+       centralizando-o no meio do losango escuro */
+    left: 13.5px;      
     
     background: transparent;
     border: none;
@@ -88,7 +89,7 @@ html, body {
     transition: transform 0.2s ease;
 }
 
-/* Mantém os traços do X em CSS puro */
+/* Mantém os traços do X em CSS puro (sem alterações aqui) */
 .botao-fechar::before,
 .botao-fechar::after {
     content: '';
@@ -114,14 +115,6 @@ html, body {
 .botao-fechar:hover::before,
 .botao-fechar:hover::after {
     background-color: #ffdd77; 
-}
-
-/* --- CONTEÚDO INTERNO DA LORE --- */
-#sidebar-conteudo {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Mantém a estrutura externa firme */
 }
 
 #sidebar-conteudo h3 {
