@@ -72,10 +72,7 @@ html, body {
     left: -2.5px;      
     background: transparent;
     border: none;
-    color: #8a96a3;   
-    font-size: 18px;   
     cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
     z-index: 11;
     width: 32px;      
     height: 32px;
@@ -83,11 +80,37 @@ html, body {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    transition: transform 0.2s ease;
 }
 
+/* Cria os traços do X usando pseudo-elementos estruturados */
+.botao-fechar::before,
+.botao-fechar::after {
+    content: '';
+    position: absolute;
+    width: 14px;          /* Comprimento das pernas do X */
+    height: 2px;          /* Espessura das linhas */
+    background-color: #8a96a3; /* Cor padrão cinza medieval */
+    transition: background-color 0.2s ease;
+}
+
+/* Rotaciona as linhas para cruzarem perfeitamente no centro */
+.botao-fechar::before {
+    transform: rotate(45deg);
+}
+
+.botao-fechar::after {
+    transform: rotate(-45deg);
+}
+
+/* Efeito Hover unificado */
 .botao-fechar:hover {
-    color: #ffdd77;
     transform: scale(1.1);
+}
+
+.botao-fechar:hover::before,
+.botao-fechar:hover::after {
+    background-color: #ffdd77; /* Muda para o dourado RPG */
 }
 
 /* --- CONTEÚDO INTERNO DA LORE --- */
