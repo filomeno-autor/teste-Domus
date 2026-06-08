@@ -70,11 +70,11 @@ html, body {
     position: absolute;
     
     /* Mantém a altura que deu certo */
-    top: 25px;         
+    top: 19px;         
     
     /* CORRIGIDO: Mudamos de -1.5px para 13.5px para empurrar o X para a direita, 
        centralizando-o no meio do losango escuro */
-    left: 11px;      
+    left: 15px;      
     
     background: transparent;
     border: none;
