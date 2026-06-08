@@ -163,3 +163,43 @@ html, body {
 .texto-scroll::-webkit-scrollbar-thumb:hover {
     background: #ffdd77;
 }
+/* =========================================================================
+   --- RESPONSIVIDADE PARA CELULARES (Telas de até 768px de largura) ---
+   ========================================================================= */
+@media screen and (max-width: 768px) {
+    
+    #sidebar-lore {
+        /* No celular, a aba desliza de baixo para cima ou ocupa 85% da largura */
+        width: 85%;  
+        right: -85%; /* Ajusta o esconderijo para a nova largura */
+        
+        /* CORRIGIDO: Muda o comportamento do fundo para não achatar a arte */
+        background-size: cover !important; 
+        background-position: left center;
+        
+        /* Reduz um pouco os paddings para ganhar mais espaço útil no celular */
+        padding: 30px 15px 25px 35px; 
+    }
+
+    #sidebar-lore.ativo {
+        right: 0;
+    }
+
+    /* Ajuste fino no botão de fechar para o formato do celular */
+    .botao-fechar {
+        top: 28px;
+        left: 5px; /* Traz o botão ligeiramente para dentro para facilitar o toque no touch */
+    }
+
+    /* Ajusta os textos para telas menores */
+    #sidebar-conteudo h3 {
+        font-size: 22px; /* Título um pouco menor para não quebrar linha */
+        margin-right: 15px;
+    }
+
+    .texto-scroll {
+        font-size: 16px; /* Texto ligeiramente menor para leitura confortável em telas pequenas */
+        padding-right: 10px;
+        margin-right: 10px;
+    }
+}
