@@ -68,8 +68,13 @@ html, body {
 /* --- BOTÃO DE FECHAR (X INTEGRADO AO PRISMA) --- */
 .botao-fechar {
     position: absolute;
-    top: 15px;         
-    left: -2.5px;      
+    
+    /* CORRIGIDO: Aumentamos a distância do topo para empurrar o X para dentro do losango */
+    top: 31px;         
+    
+    /* CORRIGIDO: Ajuste fino para alinhar horizontalmente ao bico do painel */
+    left: -1.5px;      
+    
     background: transparent;
     border: none;
     cursor: pointer;
@@ -83,18 +88,17 @@ html, body {
     transition: transform 0.2s ease;
 }
 
-/* Cria os traços do X usando pseudo-elementos estruturados */
+/* Mantém os traços do X em CSS puro */
 .botao-fechar::before,
 .botao-fechar::after {
     content: '';
     position: absolute;
-    width: 14px;          /* Comprimento das pernas do X */
-    height: 2px;          /* Espessura das linhas */
-    background-color: #8a96a3; /* Cor padrão cinza medieval */
+    width: 14px;          
+    height: 2px;          
+    background-color: #8a96a3; 
     transition: background-color 0.2s ease;
 }
 
-/* Rotaciona as linhas para cruzarem perfeitamente no centro */
 .botao-fechar::before {
     transform: rotate(45deg);
 }
@@ -103,14 +107,13 @@ html, body {
     transform: rotate(-45deg);
 }
 
-/* Efeito Hover unificado */
 .botao-fechar:hover {
     transform: scale(1.1);
 }
 
 .botao-fechar:hover::before,
 .botao-fechar:hover::after {
-    background-color: #ffdd77; /* Muda para o dourado RPG */
+    background-color: #ffdd77; 
 }
 
 /* --- CONTEÚDO INTERNO DA LORE --- */
